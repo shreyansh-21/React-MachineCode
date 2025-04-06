@@ -29,7 +29,7 @@ function App() {
   return (
     <div>
       {products.length > 0 && <div className="products">
-        {products.slice(page * 10 - 10, page * 10).map((prod) => {
+        {products.slice(page * 9 - 9, page * 9).map((prod) => {
           return <span className="products__single" key={prod.id}>
             <img src={prod.thumbnail} alt={prod.title} /> {/* alt is imp */}
             <span>
