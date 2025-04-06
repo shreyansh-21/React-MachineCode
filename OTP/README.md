@@ -1,12 +1,36 @@
-# React + Vite
+<div>
+  <h1>React OTP Input Component</h1>
+  
+  <h2>Quick Reference</h2>
+  
+  <h3>Core Setup</h3>
+  <pre><code>const [otp, setOtp] = useState(Array(length).fill(""));
+const refs = useRef([]);</code></pre>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  <h3>Auto-Focus</h3>
+  <pre><code>useEffect(() => { refs.current[0].focus(); }, []);</code></pre>
 
-Currently, two official plugins are available:
+  <h3>Key Handler Pattern</h3>
+  <pre><code>const handleKeyDown = (e, index) => {
+  // Arrow keys: move focus
+  // Backspace: clear + move left 
+  // Numbers: set value + move right
+};</code></pre>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  <h3>Render Pattern</h3>
+  <pre><code>{otp.map((digit, i) => (
+  &lt;input
+    key={i}
+    ref={el => refs.current[i] = el}
+    value={digit}
+    onKeyDown={(e) => handleKeyDown(e, i)}
+  />
+))}</code></pre>
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+  <h3>Quick Tips</h3>
+  <ul>
+    <li>Always spread state array before modifying</li>
+    <li>Check array bounds before focusing</li>
+    <li>Use <code>isNaN</code> for number validation</li>
+  </ul>
+</div>
