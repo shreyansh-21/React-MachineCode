@@ -1,7 +1,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function Otp({ otpLength = 6 }) {
+export default function Otp({ otpLength = 6 }) { //props are passed in curly braces as an object
   const [otpFields, setOtpFields] = useState(new Array(otpLength).fill(""));
   const ref = useRef([]);
 
