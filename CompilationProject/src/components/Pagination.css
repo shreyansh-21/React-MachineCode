@@ -1,3 +1,10 @@
+:root {
+  --accent-color: #FFF9DB; /* pastel yellow */
+  --text-color: #333;
+  --card-bg: #ffffff;       /* clean white card */
+  --border-color: #e0e0e0;
+}
+
 .products {
   margin: 20px;
   padding: 0;
@@ -10,17 +17,19 @@
 .products__single {
   height: 280px;
   padding: 16px;
-  background-color: #ffffff;
+  background-color: var(--card-bg);
   text-align: center;
   border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  color: var(--text-color);
 }
 
 .products__single:hover {
+  background-color: var(--accent-color);
   transform: translateY(-4px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .products__single > img {
@@ -42,13 +51,14 @@
 .pagination > span {
   padding: 10px 16px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  background-color: white;
+  transition: background-color 0.2s ease;
 }
 
 .pagination > span:hover {
-  background-color: #f0f0f0;
+  background-color: var(--accent-color);
 }
 
 .pagination__disable {
@@ -57,7 +67,7 @@
 }
 
 .pagination__selected {
-  background-color: #4a90e2;
-  color: white;
-  border-color: #4a90e2;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  border-color: var(--border-color);
 }
