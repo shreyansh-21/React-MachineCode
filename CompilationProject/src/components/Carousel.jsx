@@ -24,36 +24,46 @@ export default function ImageCarousel() {
     setIndex((prev) => (prev === 0 ? DATA_LENGTH - 1 : prev - 1));
   };
 
+  // Fixed interval with functional setState to avoid stale closure
   useEffect(() => {
-    ref.current = setInterval(handleNext, 3000);
+    ref.current = setInterval(() => {
+      setIndex((prev) => (prev === DATA_LENGTH - 1 ? 0 : prev + 1));
+    }, 3000);
+
     return () => clearInterval(ref.current);
   }, []);
 
   if (images.length === 0) return <div className="loading">Loading...</div>;
 
   return (
-    <div className="carousel-container" 
-     onMouseEnter={() => clearInterval(ref.current)}
-     onMouseLeave={() => {
-       ref.current = setInterval(handleNext, 3000);
-     }}>
+    <div
+      className="carousel-container"
+      onMouseEnter={() => clearInterval(ref.current)}
+      onMouseLeave={() => {
+        ref.current = setInterval(() => {
+          setIndex((prev) => (prev === DATA_LENGTH - 1 ? 0 : prev + 1));
+        }, 3000);
+      }}
+    >
+      <div className="btn left-btn" onClick={handlePrev}>
+        &#10094;
+      </div>
 
-  <div className="btn left-btn" onClick={handlePrev}>&#10094;</div>
-  
-  <img src={images[index].url} alt={`Slide ${index}`} />
-  
-  <div className="btn right-btn" onClick={handleNext}>&#10095;</div>
+      <img src={images[index].url} alt={`Slide ${index}`} />
 
-  <div className="dots-container">
-    {images.map((_, i) => (
-      <span
-        key={i}
-        className={`dot ${i === index ? "active" : ""}`}
-        onClick={() => setIndex(i)}
-      ></span>
-    ))}
-  </div>
-</div>
+      <div className="btn right-btn" onClick={handleNext}>
+        &#10095;
+      </div>
 
+      <div className="dots-container">
+        {images.map((_, i) => (
+          <span
+            key={i}
+            className={`dot ${i === index ? "active" : ""}`}
+            onClick={() => setIndex(i)}
+          ></span>
+        ))}
+      </div>
+    </div>
   );
 }
