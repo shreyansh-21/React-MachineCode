@@ -35,12 +35,13 @@ export default function Home() {
 
   // Sample projects data
   const projects = [
-    { id: 1, title: "Weather App", path: "/weather-app" },
+    { id: 1, title: "Pagination", path: "/Pagination" },
     { id: 2, title: "Todo List", path: "/todo-list" },
     { id: 3, title: "Calculator", path: "/calculator" },
     { id: 4, title: "Image Gallery", path: "/image-gallery" },
     { id: 5, title: "Quiz App", path: "/quiz-app" },
     { id: 6, title: "Pomodoro Timer", path: "/pomodoro-timer" },
+    { id: 6, title: "Pomodoro", path: "/pomodoro" },
   ]
 
   return (
