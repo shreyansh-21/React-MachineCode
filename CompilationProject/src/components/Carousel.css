@@ -72,27 +72,3 @@ img {
   background-color: #fff;
 }
 
-/* Gradient overlay for better button contrast */
-.carousel-container::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent 50%, rgba(0, 0, 0, 0.3));
-  z-index: 1;
-  pointer-events: none;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #fdf0f0, #f3d9dc, #fff3cd, #fce9e9);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Segoe UI', sans-serif;
-}
-
