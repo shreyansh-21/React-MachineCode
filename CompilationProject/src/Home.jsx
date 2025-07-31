@@ -41,7 +41,7 @@ export default function Home() {
     { id: 4, title: "Image Gallery", path: "/image-gallery" },
     { id: 5, title: "Quiz App", path: "/quiz-app" },
     { id: 6, title: "Pomodoro Timer", path: "/pomodoro-timer" },
-    { id: 6, title: "Pomodoro", path: "/pomodoro" },
+    { id: 7, title: "Carousel", path: "/Carousel" },
   ]
 
   return (
